@@ -6,7 +6,7 @@ using UnityEngine;
 using static UnityEngine.ParticleSystem;
 using UnityEngine.UI;
 
-//public class ArcLengthReparametrization : MonoBehaviour
+
 public partial class BezierCurve : MonoBehaviour
 {
     int NumberOfCurves = 1;
@@ -75,8 +75,6 @@ public partial class BezierCurve : MonoBehaviour
             }
             else
             {
-                //U[result.Value.Item1]
-                //U[result.Value.Item2]
                 //evaluate the curve twice
                 //interpolate
                 //success
@@ -92,16 +90,9 @@ public partial class BezierCurve : MonoBehaviour
     }
     void Generate_S_Table()
     {
-        //Called = true;
-        //if(curve == null)
-        //{
-        //    return;
-        //}
-        //NumberOfCurves = curve.GetCurveNumber();
         NumberOfCurves = GetCurveNumber();
-        if (NumberOfCurves == 0)
+        if (NumberOfCurves == 0)//avoid indexing arithmetics
         {
-            //Debug.Log("curve.GetCurveNumber() returned 0 curves");
             NumberOfCurves = 1;
         }
         s.Clear();
@@ -122,36 +113,6 @@ public partial class BezierCurve : MonoBehaviour
     //Given those 2 points we interpolate the arc length as s = S[i] + (u - U[i])/(U[i+1] - U[i]) * (S[i+1] - S[i])
     //That is the arclength
     // Start is called before the first frame update
-
-
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    if (!Called)
-    //    {
-    //        Invoke("Generate_S_Table", 1f);
-    //        TotDist = s[s.Count - 1];//get total dist
-    //        return;
-    //    }
-    //    if (Called)//check it works
-    //    {
-    //        if (DebugDraw)
-    //        {
-    //            if (DrawnDebug == true)//this is so its only drawn once
-    //            {
-    //                return;
-    //            }
-    //            for (float D = 0; D < TotDist; D += 0.5f)
-    //            {
-    //                Vector3 Pos = GetPos(D);
-    //                GameObject tmp = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-    //                tmp.transform.position = Pos;
-    //                tmp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f); //smaller sphere
-    //            }
-    //            DrawnDebug = true;
-    //        }
-    //    }
-    //}
 
     // Binary search function that returns the two indeces the target lies between
     (int, int)? BinarySearchWithRange(List<float> list, float value)
