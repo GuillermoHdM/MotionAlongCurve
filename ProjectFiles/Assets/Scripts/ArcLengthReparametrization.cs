@@ -70,7 +70,6 @@ public partial class BezierCurve : MonoBehaviour
             if (result.Value.Item1 == result.Value.Item2)
             {
                 //found value
-                //U[result.Value.Item1]
                 return Points[result.Value.Item1];
             }
             else
@@ -98,7 +97,6 @@ public partial class BezierCurve : MonoBehaviour
         s.Clear();
         s.Add(0.0f);
         U.Add(0.0f);
-        //s[1] = Vector3.Distance(Q1, Q2);
         float CurrT = deltaT;
         for (int i = 1; i < Points.Length; i++, CurrT += deltaT)
         {
